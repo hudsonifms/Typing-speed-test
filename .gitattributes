@@ -1,0 +1,9 @@
+# Normalise line endings so the repo stays identical on Windows, macOS and Linux.
+* text=auto eol=lf
+
+*.png  binary
+*.jpg  binary
+*.svg  text eol=lf
+*.ttf  binary
+*.woff binary
+*.woff2 binary
