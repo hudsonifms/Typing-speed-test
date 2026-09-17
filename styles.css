@@ -55,6 +55,29 @@
   --shell-pad: 1rem;
 
   --transition: 150ms ease;
+
+  /*
+   * Type scale. Every value below was measured off the JPG exports in
+   * /design by matching rendered Sora ink boxes against the reference
+   * pixels, so the numbers are the design's, not a guess:
+   *
+   *            mobile (375)   desktop (1440)
+   *   label        16px           19px
+   *   value        24px           24px
+   *   control      15px           15px
+   *   passage      32px / 1.375   40px / 1.35
+   *   button       19px           19px
+   *   title        24px           40px
+   *   subtitle     16px           18px
+   */
+  --fs-label: 1rem;
+  --fs-value: 1.5rem;
+  --fs-control: 0.9375rem;
+  --fs-passage: 2rem;
+  --lh-passage: 1.375;
+  --fs-button: 1.1875rem;
+  --fs-title: 1.5rem;
+  --fs-subtitle: 1rem;
 }
 
 /* ------------------------------ Reset ----------------------------------- */
