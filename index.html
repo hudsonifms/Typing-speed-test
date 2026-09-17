@@ -81,14 +81,14 @@
                 class="control__trigger"
                 id="trigger-difficulty"
                 aria-expanded="false"
-                aria-haspopup="true"
+                aria-controls="options-difficulty"
                 aria-labelledby="label-difficulty trigger-difficulty"
               >
                 <span class="control__trigger-text" data-trigger-text>Medium</span>
                 <img src="./assets/images/icon-down-arrow.svg" alt="" width="11" height="6" aria-hidden="true">
               </button>
 
-              <div class="control__options" role="radiogroup" aria-labelledby="label-difficulty">
+              <div class="control__options" id="options-difficulty" role="radiogroup" aria-labelledby="label-difficulty">
                 <button type="button" class="option" role="radio" aria-checked="false" data-value="easy">Easy</button>
                 <button type="button" class="option" role="radio" aria-checked="true" data-value="medium">Medium</button>
                 <button type="button" class="option" role="radio" aria-checked="false" data-value="hard">Hard</button>
@@ -104,14 +104,14 @@
                 class="control__trigger"
                 id="trigger-mode"
                 aria-expanded="false"
-                aria-haspopup="true"
+                aria-controls="options-mode"
                 aria-labelledby="label-mode trigger-mode"
               >
                 <span class="control__trigger-text" data-trigger-text>Timed (60s)</span>
                 <img src="./assets/images/icon-down-arrow.svg" alt="" width="11" height="6" aria-hidden="true">
               </button>
 
-              <div class="control__options" role="radiogroup" aria-labelledby="label-mode">
+              <div class="control__options" id="options-mode" role="radiogroup" aria-labelledby="label-mode">
                 <button type="button" class="option" role="radio" aria-checked="true" data-value="timed">Timed (60s)</button>
                 <button type="button" class="option" role="radio" aria-checked="false" data-value="passage">Passage</button>
               </div>
@@ -160,7 +160,7 @@
         <img class="results__star results__star--red" src="./assets/images/pattern-star-2.svg" alt="" width="32" height="32" aria-hidden="true">
         <img class="results__star results__star--yellow" src="./assets/images/pattern-star-1.svg" alt="" width="74" height="74" aria-hidden="true">
 
-        <div class="results__inner" id="results-inner" role="status">
+        <div class="results__inner" id="results-inner">
           <div class="results__icon" id="results-icon-wrap">
             <img class="results__icon-img" id="results-icon" src="./assets/images/icon-completed.svg" alt="" width="64" height="64" aria-hidden="true">
           </div>
@@ -193,6 +193,13 @@
 
         <img class="results__confetti" id="results-confetti" src="./assets/images/pattern-confetti.svg" alt="" width="1440" height="326" aria-hidden="true" hidden>
       </section>
+
+      <!--
+        Results live inside a section that is toggled with [hidden], and a live
+        region that is hidden at the moment its content changes is not
+        announced. This one is always in the accessibility tree.
+      -->
+      <p class="visually-hidden" id="live-announcer" role="status" aria-live="polite"></p>
 
     </main>
 
