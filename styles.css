@@ -445,6 +445,19 @@ button {
   resize: none;
 }
 
+/*
+ * The field itself is invisible, so it borrows the passage as its focus
+ * indicator. Only while the test is idle: once it is running, the animated
+ * caret block on the current character is the visible indicator, and a ring
+ * around the whole passage for the full 60 seconds would fight the design.
+ */
+.is-idle .passage-area:has(.typing-input:focus-visible),
+.is-idle .passage-area.is-input-focused {
+  outline: 2px solid var(--blue-400);
+  outline-offset: 4px;
+  border-radius: var(--radius-md);
+}
+
 .start-overlay {
   position: absolute;
   inset: 0;

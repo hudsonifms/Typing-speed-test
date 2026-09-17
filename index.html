@@ -126,6 +126,11 @@
 
           <!-- Off-screen field that actually receives the keystrokes -->
           <label class="visually-hidden" for="typing-input">Type the passage shown on screen</label>
+          <p class="visually-hidden" id="typing-help">
+            Typing the first character starts the timer. Backspace corrects a
+            mistake, but the original error still counts against your accuracy.
+            Press Escape to restart with a new passage.
+          </p>
           <textarea
             id="typing-input"
             class="typing-input"
@@ -133,7 +138,7 @@
             autocorrect="off"
             autocapitalize="off"
             spellcheck="false"
-            tabindex="-1"
+            aria-describedby="typing-help"
           ></textarea>
 
           <div class="start-overlay" id="start-overlay">
