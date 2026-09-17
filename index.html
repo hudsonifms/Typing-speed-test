@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Typing Speed Test</title>
+
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#test">Skip to the typing test</a>
+
+  <div class="app">
+    <header class="header">
+      <a class="header__brand" href="./index.html" aria-label="Typing Speed Test — home">
+        <img class="header__logo header__logo--large" src="./assets/images/logo-large.svg" alt="Typing Speed Test — type as fast as you can in 60 seconds" width="267" height="40">
+        <img class="header__logo header__logo--small" src="./assets/images/logo-small.svg" alt="Typing Speed Test" width="32" height="32">
+      </a>
+
+      <p class="personal-best" id="personal-best" hidden>
+        <img src="./assets/images/icon-personal-best.svg" alt="" width="21" height="18" aria-hidden="true">
+        <span class="personal-best__label personal-best__label--long">Personal best:</span>
+        <span class="personal-best__label personal-best__label--short">Best:</span>
+        <strong class="personal-best__value"><span id="personal-best-value">0</span> WPM</strong>
+      </p>
+    </header>
+
+    <main class="main" id="test">
+
+      <!-- ============================ TEST VIEW ============================ -->
+      <section class="test" id="test-view" aria-label="Typing test">
+
+        <div class="toolbar">
+          <div class="stats" role="group" aria-label="Live statistics">
+            <p class="stat">
+              <span class="stat__label">WPM:</span>
+              <span class="stat__value" id="stat-wpm" aria-live="off">0</span>
+            </p>
+            <p class="stat">
+              <span class="stat__label">Accuracy:</span>
+              <span class="stat__value" id="stat-accuracy" aria-live="off">100%</span>
+            </p>
+            <p class="stat">
+              <span class="stat__label">Time:</span>
+              <span class="stat__value" id="stat-time" aria-live="off">0:60</span>
+            </p>
+          </div>
+
+          <div class="controls">
+            <div class="control" data-control="difficulty">
+              <span class="control__label" id="label-difficulty">Difficulty:</span>
+              <button
+                type="button"
+                class="control__trigger"
+                id="trigger-difficulty"
+                aria-expanded="false"
+                aria-haspopup="true"
+                aria-labelledby="label-difficulty trigger-difficulty"
+              >
+                <span class="control__trigger-text" data-trigger-text>Medium</span>
+                <img src="./assets/images/icon-down-arrow.svg" alt="" width="11" height="6" aria-hidden="true">
+              </button>
+
+              <div class="control__options" role="radiogroup" aria-labelledby="label-difficulty">
+                <button type="button" class="option" role="radio" aria-checked="false" data-value="easy">Easy</button>
+                <button type="button" class="option" role="radio" aria-checked="true" data-value="medium">Medium</button>
+                <button type="button" class="option" role="radio" aria-checked="false" data-value="hard">Hard</button>
+              </div>
+            </div>
+
+            <span class="controls__divider" aria-hidden="true"></span>
+
+            <div class="control" data-control="mode">
+              <span class="control__label" id="label-mode">Mode:</span>
+              <button
+                type="button"
+                class="control__trigger"
+                id="trigger-mode"
+                aria-expanded="false"
+                aria-haspopup="true"
+                aria-labelledby="label-mode trigger-mode"
+              >
+                <span class="control__trigger-text" data-trigger-text>Timed (60s)</span>
+                <img src="./assets/images/icon-down-arrow.svg" alt="" width="11" height="6" aria-hidden="true">
+              </button>
+
+              <div class="control__options" role="radiogroup" aria-labelledby="label-mode">
+                <button type="button" class="option" role="radio" aria-checked="true" data-value="timed">Timed (60s)</button>
+                <button type="button" class="option" role="radio" aria-checked="false" data-value="passage">Passage</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="passage-area">
+          <div class="passage-viewport" id="passage-viewport">
+            <p class="passage" id="passage"></p>
+          </div>
+
+          <!-- Off-screen field that actually receives the keystrokes -->
+          <label class="visually-hidden" for="typing-input">Type the passage shown on screen</label>
+          <textarea
+            id="typing-input"
+            class="typing-input"
+            autocomplete="off"
+            autocorrect="off"
+            autocapitalize="off"
+            spellcheck="false"
+            tabindex="-1"
+          ></textarea>
+
+          <div class="start-overlay" id="start-overlay">
+            <button type="button" class="btn btn--primary" id="start-btn">Start Typing Test</button>
+            <p class="start-overlay__hint">Or click the text and start typing</p>
+          </div>
+        </div>
+
+        <div class="test__footer" id="test-footer" hidden>
+          <button type="button" class="btn btn--ghost" id="restart-btn">
+            Restart Test
+            <img src="./assets/images/icon-restart.svg" alt="" width="20" height="20" aria-hidden="true">
+          </button>
+        </div>
+      </section>
+
+      <!-- =========================== RESULTS VIEW =========================== -->
+      <section class="results" id="results-view" aria-label="Test results" hidden>
+        <img class="results__star results__star--red" src="./assets/images/pattern-star-2.svg" alt="" width="32" height="32" aria-hidden="true">
+        <img class="results__star results__star--yellow" src="./assets/images/pattern-star-1.svg" alt="" width="74" height="74" aria-hidden="true">
+
+        <div class="results__inner" id="results-inner" role="status">
+          <div class="results__icon" id="results-icon-wrap">
+            <img class="results__icon-img" id="results-icon" src="./assets/images/icon-completed.svg" alt="" width="64" height="64" aria-hidden="true">
+          </div>
+
+          <h1 class="results__title" id="results-title">Test Complete!</h1>
+          <p class="results__subtitle" id="results-subtitle">Solid run. Keep pushing to beat your high score.</p>
+
+          <div class="result-cards">
+            <div class="result-card">
+              <span class="result-card__label">WPM:</span>
+              <span class="result-card__value" id="result-wpm">0</span>
+            </div>
+            <div class="result-card">
+              <span class="result-card__label">Accuracy:</span>
+              <span class="result-card__value" id="result-accuracy">100%</span>
+            </div>
+            <div class="result-card">
+              <span class="result-card__label">Characters</span>
+              <span class="result-card__value">
+                <span class="is-correct" id="result-correct">0</span><span class="is-incorrect" id="result-incorrect">/0</span>
+              </span>
+            </div>
+          </div>
+
+          <button type="button" class="btn btn--light" id="again-btn">
+            <span id="again-btn-text">Go Again</span>
+            <img src="./assets/images/icon-restart.svg" alt="" width="20" height="20" aria-hidden="true">
+          </button>
+        </div>
+
+        <img class="results__confetti" id="results-confetti" src="./assets/images/pattern-confetti.svg" alt="" width="1440" height="326" aria-hidden="true" hidden>
+      </section>
+
+    </main>
+
+    <footer class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener">Frontend Mentor</a>.
+      Coded by <a href="#">Hudson Batista</a>.
+    </footer>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
