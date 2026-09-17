@@ -492,7 +492,7 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.25rem;
   text-align: center;
   /* Clicks fall through to the passage underneath — "or click the text". */
   pointer-events: none;
@@ -504,7 +504,7 @@ button {
 
 .start-overlay__hint {
   font-weight: 700;
-  font-size: 1rem;
+  font-size: var(--fs-button);
 }
 
 .test__footer {
@@ -516,6 +516,10 @@ button {
 
 /* ------------------------------ Buttons --------------------------------- */
 
+/*
+ * Design: "Start Typing Test" is 216x55, "Go Again" 156x56, "Restart Test"
+ * 182x56. One padding pair reproduces all three once the label is 19px/1.4.
+ */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -523,10 +527,15 @@ button {
   gap: 0.75rem;
   padding: 0.875rem 1.5rem;
   font-weight: 700;
-  font-size: 1.0625rem;
+  font-size: var(--fs-button);
+  line-height: 1.4;
   border-radius: var(--radius-md);
   transition: background-color var(--transition), color var(--transition),
     transform var(--transition);
+}
+
+.btn img {
+  flex: none;
 }
 
 .btn:active {
@@ -874,10 +883,6 @@ button {
   .passage {
     font-size: 2.5rem;
     line-height: 1.35;
-  }
-
-  .start-overlay__hint {
-    font-size: 1.125rem;
   }
 
   .test__footer {
