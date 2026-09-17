@@ -134,6 +134,17 @@ button {
   transform: translate(-50%, 0);
 }
 
+.noscript {
+  max-width: 44ch;
+  margin: 1.5rem auto;
+  padding: 1rem 1.25rem;
+  color: var(--neutral-900);
+  font-weight: 600;
+  text-align: center;
+  background-color: var(--yellow-400);
+  border-radius: var(--radius-md);
+}
+
 /* ------------------------------ Shell ----------------------------------- */
 
 .app {
