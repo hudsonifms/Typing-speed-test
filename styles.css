@@ -6,7 +6,8 @@
 
 @font-face {
   font-family: "Sora";
-  src: url("./assets/fonts/Sora/static/Sora-Regular.ttf") format("truetype");
+  src: url("./assets/fonts/Sora-Regular.woff2") format("woff2"),
+       url("./assets/fonts/Sora/static/Sora-Regular.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -14,7 +15,8 @@
 
 @font-face {
   font-family: "Sora";
-  src: url("./assets/fonts/Sora/static/Sora-SemiBold.ttf") format("truetype");
+  src: url("./assets/fonts/Sora-SemiBold.woff2") format("woff2"),
+       url("./assets/fonts/Sora/static/Sora-SemiBold.ttf") format("truetype");
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -22,7 +24,8 @@
 
 @font-face {
   font-family: "Sora";
-  src: url("./assets/fonts/Sora/static/Sora-Bold.ttf") format("truetype");
+  src: url("./assets/fonts/Sora-Bold.woff2") format("woff2"),
+       url("./assets/fonts/Sora/static/Sora-Bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
