@@ -162,6 +162,12 @@ button {
   padding-block: 1.25rem;
 }
 
+.header__title {
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: 0;
+}
+
 .header__brand {
   display: block;
   border-radius: var(--radius-sm);
